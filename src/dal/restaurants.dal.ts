@@ -1,5 +1,5 @@
-import Chefs from "../db/models/chefs";
-import Restaurants from "../db/models/restaurants";
+import Chefs from '../db/models/chefs';
+import Restaurants from '../db/models/restaurants';
 
 export class RestaurantsDal {
   public async createRestaurant(restaurant: any) {
@@ -19,7 +19,6 @@ export class RestaurantsDal {
     return response;
   }
 
-  
   public findAll() {
     return Restaurants.find();
   }
@@ -27,8 +26,13 @@ export class RestaurantsDal {
   public async updateRestaurant(restaurant: any) {
     const data = await Restaurants.findOne({
       _id: restaurant._id,
-    }).updateOne({ $set: { name: restaurant.name, chef: restaurant.chef } });
+    }).updateOne({
+      $set: {
+        name: restaurant.name,
+        image: restaurant.image,
+        open: restaurant.open,
+      },
+    });
     return data;
   }
-
 }
