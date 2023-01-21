@@ -1,4 +1,4 @@
-import Chefs from "../db/models/chefs";
+import Chefs from '../db/models/chefs';
 
 export class ChefsDal {
   public createChef(chef: any) {
@@ -32,10 +32,10 @@ export class ChefsDal {
       { $match: { name: `${param.name}` } },
       {
         $lookup: {
-          localField: "restaurants",
-          foreignField: "_id",
-          from: "restaurants",
-          as: "restaurants",
+          localField: 'restaurants',
+          foreignField: '_id',
+          from: 'restaurants',
+          as: 'restaurants',
         },
       },
     ]);

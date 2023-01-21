@@ -1,6 +1,7 @@
-import routes from "./routes/index";
-import { connectDb } from "./db/index";
-import bodyParser from "body-parser";
+import routes from './routes/index';
+
+import bodyParser from 'body-parser';
+import { connectDb } from './src/db';
 
 const express = require('express');
 const cors = require('cors');
@@ -11,6 +12,6 @@ app.use(bodyParser.urlencoded());
 app.use(routes);
 
 connectDb().then(async () => {
-  app.listen(3001, () => console.log("Listening on http://localhost:3001"));
+  app.listen(3001, () => console.log('Listening on http://localhost:3001'));
 });
 export default app;
